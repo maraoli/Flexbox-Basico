@@ -1,0 +1,454 @@
+<!--FLEXBOX
+
+Aula Edu dia 10/11/2017
+
+1)TODAS as propriedades precisam estar juntas de "display: flex;" para funcionarem.
+2)Quando a alteração é no filho precisamos colocar  "display: flex;" no pai
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex-box</title>
+    <style>
+        body {
+            width: 700px;
+            height: 500px;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            width: 100%;
+            background: rgb(10, 87, 68);
+            color: white;
+            margin: 0;
+            text-align: center;
+        }
+
+        /*DISPLAY FLEX*/
+
+        .teste1 {
+            background-color: gray;
+            width: 700px;
+            height: 500px;
+
+            display: flex;
+            /*Deixa os elementos filhos um ao
+            lado do outro NÃO ULTRAPASSANDO O PAI (REAJUSTA OS FILHOS).
+            
+            Ele também aumenta a caixa dos elementos inline
+            para o tam def, se for 
+            block ele pega o tamanho certo*/
+        }
+
+        .teste1 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+        }
+
+        /*FLEX-DIRECTION*/
+
+        .teste2 {
+            background-color: #463c48;
+            width: 400px;
+            height: 500px;
+
+            display: flex;
+            flex-direction: row;
+            /*Os elementos filhos ficam como se estivesse
+            em uma linha = inline-block E NUNCA ULTRAPASSAM
+             O TAM DO PAI (REAJUSTA OS FILHOS), mas tem pra coluna
+            tbm com a prop ""column" e reverso (invertendo
+            a ordem dos elem, tire o inline-block para testar
+            
+            A diferenca do display flex é que ele tem mais propriedades
+            como a column*/
+        }
+
+        .teste2 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+            display: inline-block;
+            /*pega o tam da caixa def*/
+        }
+
+        /* FLEX-WRAP */
+
+        .teste3 {
+            background-color: gray;
+            width: 400px;
+            height: 500px;
+
+            display: flex;
+            flex-wrap: wrap;
+            /*Tbm deixa os filhos inline mas preserva o tam
+             original do elemento (QUEBRA DE LINHA SE O FILHO 
+             PASSA O TAM DO PAI)
+             
+             MAS de vc colocar nowrap ele vira um "row"*/
+        }
+
+        .teste3 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+        }
+
+        /*1) JUSTIFY-CONTENT: FLEX-END*/
+
+        .teste4 {
+            background-color: #463c48;
+            width: 700px;
+            height: 500px;
+
+            display: flex;
+            justify-content: flex-end;
+            /*Alem de deixar alinhado bem ao canto superior direito do
+            pai deixa inline-block*/
+        }
+
+        .teste4 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+        }
+
+        /*2) JUSTIFY-CONTENT: SPACE-AROUND*/
+
+        .teste5 {
+            background-color: gray;
+            width: 700px;
+            height: 500px;
+
+            display: flex;
+            justify-content: space-around;
+            /*Distribui igualmente pelo espaço
+            DEIXA uma 2 margens laterais
+            deixa inline-block
+            não tem quebra de linha*/
+        }
+
+        .teste5 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+        }
+
+        /*3) JUSTIFY-CONTENT: SPACE-BETWEEN*/
+
+        .teste6 {
+            background-color: #463c48;
+            width: 700px;
+            height: 500px;
+
+            display: flex;
+            justify-content: space-between;
+            /*Distribui igualmente pelo espaço
+            NÃO deixa uma 2 margens laterais como o "around"
+            deixa inline-block
+            não tem quebra de linha*/
+        }
+
+        .teste6 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+        }
+
+        /*1)ALIGN-ITENS: CENTER*/
+
+        .teste7 {
+            background-color: gray;
+            width: 700px;
+            height: 500px;
+
+            display: flex;
+            align-items: center;
+            /*Alinhamento centralizado com relacao a vertical*/
+        }
+
+        .teste7 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+        }
+
+        /*2)ALIGN-ITENS: STRETCH*/
+
+        .teste8 {
+            background-color: #463c48;
+            width: 700px;
+            height: 500px;
+
+            display: flex;
+            align-items: stretch;
+            /*Deixa os filhos com o height
+            igual ao do pai, SE eles não
+            tiverem height proprio
+            
+            Se o pai tam n tive altura fik do
+            tam do conteudo*/
+        }
+
+        .teste8 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            /*height: 150px;*/
+        }
+
+        /*FLEX-FLOW*/
+
+        .teste9 {
+            background-color: gray;
+            width: 700px;
+            height: 400px;
+
+            display: flex;
+            flex-flow: column-reverse wrap;
+            /*Deixa eu inserir direction e wrap num mesmo item
+            Posso inseir só um deles se quiser tbm
+
+            NOTE: as colunas sao bem distribuidas a esquerda
+            O REVERSE TBM ALTERA O TOPO 
+            */
+        }
+
+        .teste9 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+        }
+
+        /*FLEX-BASIS*/
+        .teste10 {
+            background-color: #463c48;
+            width: 700px;
+            height: 500px;
+
+            display: flex;
+        }
+
+        .teste10 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+
+            flex-basis: 235px;
+            /*Ele atera a largura dos filhos mas n dá
+            quebra de linha, ocupa no max o tam do pai.*/
+        }
+
+        /*ORDER*/
+        .teste11 {
+            background-color: gray;
+            width: 700px;
+            height: 500px;
+
+            display: flex;
+        }
+
+        .teste11 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+        }
+        .teste11 article:nth-child(1) {
+            /* ":nth-child(1)" Seleciona o primeiro elemento somente(pq tem 1)
+            se fosse 2 selecionaria o segundo*/
+            order: 2;
+            /*Altera a ordem dos filhos, mas eu preciso 
+            cocolar a ordem no elemento individual
+            e nos outros que sairam de ordem também*/
+        }
+        .teste11 article:nth-child(2) {
+            order: 3;
+        }
+        .teste11 article:nth-child(3) {
+            order: 1;
+        }
+
+        /*FLEX-GROW*/
+        .teste12 {
+            background-color: #463c48;
+            width: 700px;
+            height: 500px;
+
+            display: flex;
+        }
+
+        .teste12 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+        }
+        .teste12 article:nth-child(2) {
+            flex-grow: 1;
+            /*Pega todo o espaço restante do pai e distribui
+            pelos elemento que tem essa propriedade*/
+        }
+
+        /*FLEX-SHRINK*/
+        .teste13 {
+            background-color: gray;
+            width: 700px;
+            height: 500px;
+
+            display: flex;
+        }
+
+        .teste13 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 330px;
+            height: 150px;
+        }
+        .teste13 article:nth-child(1) {
+            flex-shrink: 3;
+            /*O elemento tem 1 por padrão mas
+            se ele tiver 3 ele encolhera 3x mais que
+             os outros elementos quando n puder quebrar linha*/
+        }
+
+
+        /*FLEX*/
+        .teste14 {
+            background-color: #463c48;
+            width: 700px;
+            height: 500px;
+
+            display: flex;
+        }
+
+        .teste14 article {
+            background-color: pink;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+        }
+        .teste14 article:nth-child(2) {
+            flex: 1 1 100px;
+            /*atalho para as propriedades gow, shrink e basic jutas
+            */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Display:flex</h1>
+    <section class="teste1">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>FLEX-DIRECTION</h1>
+    <section class="teste2">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>FLEX-WRAP</h1>
+    <section class="teste3">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>1) JUSTIFY-CONTENT: FLEX-END</h1>
+    <section class="teste4">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>2) JUSTIFY-CONTENT: SPACE-AROUND</h1>
+    <section class="teste5">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>3) JUSTIFY-CONTENT: SPACE-BETWEEN</h1>
+    <section class="teste6">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>1)ALIGN-ITENS: CENTER</h1>
+    <section class="teste7">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>2)ALIGN-ITENS: STRETCH</h1>
+    <section class="teste8">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>FLEX-FLOW</h1>
+    <section class="teste9">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>FLEX-BASIS</h1>
+    <section class="teste10">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>ORDER</h1>
+    <section class="teste11">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>FLEX-GROW</h1>
+    <section class="teste12">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>FLEX-SHRINK</h1>
+    <section class="teste13">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+
+    <h1>FLEX</h1>
+    <section class="teste14">
+        <article>Artigo 1</article>
+        <article>Artigo 2</article>
+        <article>Artigo 3</article>
+    </section>
+</body>
+
+</html>
